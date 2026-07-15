@@ -78,23 +78,12 @@ export function OrgSwitcher() {
             render={
               <SidebarMenuButton
                 size="lg"
-                className="
-                data-popup-open:bg-sidebar-accent 
-                data-popup-open:text-sidebar-accent-foreground
-                "
+                className="data-popup-open:bg-sidebar-accent data-popup-open:text-sidebar-accent-foreground"
               />
             }
           >
 
-            <div className="
-              bg-sidebar-primary 
-              text-sidebar-primary-foreground 
-              flex aspect-square size-8 
-              shrink-0 items-center 
-              justify-center 
-              overflow-hidden 
-              rounded-lg
-            ">
+            <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
 
               {activeOrg.imageUrl ? (
                 <Image
@@ -112,15 +101,7 @@ export function OrgSwitcher() {
 
 
             <div
-              className={`
-                grid flex-1 text-left text-sm leading-tight
-                transition-all duration-200
-                ${
-                  state === 'collapsed'
-                  ? 'invisible max-w-0 overflow-hidden opacity-0'
-                  : 'visible max-w-full opacity-100'
-                }
-              `}
+              className={`grid flex-1 text-left text-sm leading-tight transition-all duration-200 ${state === 'collapsed' ? 'invisible max-w-0 overflow-hidden opacity-0' : 'visible max-w-full opacity-100'}`}
             >
 
               <span className="truncate font-medium">
@@ -135,14 +116,7 @@ export function OrgSwitcher() {
 
 
             <Icons.chevronsUpDown
-              className={`
-              ml-auto transition-all duration-200
-              ${
-                state === 'collapsed'
-                ? 'invisible max-w-0 opacity-0'
-                : 'visible max-w-full opacity-100'
-              }
-              `}
+              className={`ml-auto transition-all duration-200 ${state === 'collapsed' ? 'invisible max-w-0 opacity-0' : 'visible max-w-full opacity-100'}`}
             />
 
 
