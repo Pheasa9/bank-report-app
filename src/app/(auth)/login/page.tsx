@@ -1,12 +1,12 @@
+import Login2 from "@/components/login2";
+
 export default function Page(){
 
-    return(
+   return <Login2 />;
+      
 
-     <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-5xl font-bold text-blue-600">
-       From Login
-      </h1>
-    </main>
 
-    )
+    
+
+    
 }
