@@ -10,7 +10,7 @@ type PhoneInputProps = Omit<React.ComponentProps<typeof ReactPhoneInput>, 'numbe
   inputClassName?: string;
 };
 
-function PhoneInput({ className, inputClassName, ...props }: PhoneInputProps) {
+function PhoneInput({ className, inputClassName, onChange = () => {}, ...props }: PhoneInputProps) {
   return (
     <ReactPhoneInput
       international
@@ -25,6 +25,7 @@ function PhoneInput({ className, inputClassName, ...props }: PhoneInputProps) {
           inputClassName
         ),
       }}
+      onChange={onChange}
       {...props}
     />
   );

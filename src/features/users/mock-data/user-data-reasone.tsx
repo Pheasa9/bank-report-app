@@ -1,3 +1,40 @@
+ type Payment = {
+  id: string
+  amount: number
+  status: "pending" | "processing" | "success" | "failed"
+  email: string
+  image? : string
+}
+
+export const payments: Payment[] = [
+  {
+    id: "728ed52f",
+    amount: 100,
+    status: "pending",
+    email: "m@example.com",
+    image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUxm1m6XToGECAMxZh3MPr0PS9HeaZn9A2cuTgiPlQ-g&s=10",
+  },
+  {
+    id: "489e1d42",
+    amount: 125,
+    status: "processing",
+    email: "example@gmail.com",
+    image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZlZ0Yr8Ba8J798rKl-Je-s1Wpznd83nKGcrlZnEDQUA&s=10",
+  },
+
+{
+    id: "AZ003",
+    amount: 125,
+    status: "processing",
+    email: "example@gmail.com",
+    image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz-BmQ34SwXWz98Bnn-LdN92bXdUSXn1ocTQyp17JQ-g&s=10",
+  },
+
+
+  // ...
+]
+ 
+ 
  export const invoices = [
   {
     invoice: "INV001",
