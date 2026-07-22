@@ -25,14 +25,20 @@ export default async function DashboardLayout({ children }: { children: React.Re
     <KBar>
       <SidebarProvider defaultOpen={defaultOpen}>
         <AppSidebar />
-        <SidebarInset>
-          <Header />
-          <InfobarProvider defaultOpen={false}>
-            {children}
-              <Toaster />
-            <InfoSidebar side='right' />
-          </InfobarProvider>
-        </SidebarInset>
+       <SidebarInset className="h-svh overflow-hidden">
+  <Header />
+
+  <div className="flex min-h-0 flex-1 overflow-hidden">
+    <InfobarProvider defaultOpen={false}>
+      <div className="flex min-h-0 flex-1 overflow-hidden">
+        {children}
+      </div>
+
+      <Toaster />
+      <InfoSidebar side="right" />
+    </InfobarProvider>
+  </div>
+</SidebarInset>
       </SidebarProvider>
     </KBar>
   );

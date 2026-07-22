@@ -3,7 +3,6 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 import Link from 'next/link';
-import UserForm from '@/features/users/components/user-form';
 
 export const metadata = {
   title: 'Dashboard: Add User'
@@ -21,7 +20,7 @@ export default function AddUserPage() {
       }
     >
       <div className="mx-auto max-w-2xl rounded-lg border p-6">
-        <UserForm />
+        <p className="text-sm text-muted-foreground">User creation UI is not wired yet.</p>
       </div>
     </PageContainer>
   );

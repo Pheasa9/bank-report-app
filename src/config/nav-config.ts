@@ -78,8 +78,8 @@ export const navGroups: NavGroup[] = [
         items: []
       },
       {
-        title: 'Teams',
-        url: '/dashboard/workspaces/team',
+        title: 'Students',
+        url: '/dashboard/students',
         icon: 'teams',
         isActive: false,
         items: [],

@@ -18,7 +18,7 @@ function DropdownMenuTrigger({ asChild, children, ...props }: MenuPrimitive.Trig
   // Prevent forwarding `asChild` to DOM elements (causes React warning)
   if (asChild) {
     return (
-      <MenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...({ asChild: true } as any)}>
+      <MenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...(props as any)}>
         {children}
       </MenuPrimitive.Trigger>
     )
