@@ -49,6 +49,7 @@ export default function HeroSection() {
 
                   <Button
                     render={<Link href="#link" />}
+                    nativeButton={false}
                     size="lg"
                     className="h-12 rounded-full pl-5 pr-3 text-base"
                   >
@@ -63,6 +64,7 @@ export default function HeroSection() {
 
                   <Button
                     render={<Link href="#link" />}
+                    nativeButton={false}
                     size="lg"
                     variant="ghost"
                     className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5"

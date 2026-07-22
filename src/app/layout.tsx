@@ -3,6 +3,7 @@ import "./globals.css";
 import "./theme.css";
 import { ThemeProvider } from "@/components/themes/theme-provider";
 import { ActiveThemeProvider } from "@/components/themes/active-theme";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 export const metadata: Metadata = {
   title: "Next Shadcn Dashboard Starter",
@@ -23,9 +24,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ActiveThemeProvider>
-            {children}
-          </ActiveThemeProvider>
+          <div className="h-full">
+            <ActiveThemeProvider>
+              <QueryProvider>
+                {children}
+              </QueryProvider>
+            </ActiveThemeProvider>
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -112,6 +112,7 @@ export const Icons = {
   search: IconSearch,
   settings: IconSettings,
   trash: IconTrash,
+  system :  IconSettings,
 
   // Navigation / Chevrons
   chevronDown: IconChevronDown,

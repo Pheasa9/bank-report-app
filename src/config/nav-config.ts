@@ -46,6 +46,31 @@ export const navGroups: NavGroup[] = [
         items: []
       },
       {
+        title: 'Sytem Setup',
+        url: '#',
+        icon: 'system',
+        isActive: true,
+        items: [
+          {
+            title: 'Permissions',
+            url: '/dashboard/permissions',
+            icon: 'userPen',
+            shortcut: ['p', 'p']
+          },
+          {
+            title: 'Role',
+            url: '/dashboard/roles',
+            icon: 'user'
+          },
+          {
+            title: 'User',
+            url: '/dashboard/users',
+            icon: 'user'
+          }
+          
+        ]
+      },
+      {
         title: 'Workspaces',
         url: '/dashboard/workspaces',
         icon: 'workspace',
@@ -53,29 +78,15 @@ export const navGroups: NavGroup[] = [
         items: []
       },
       {
-        title: 'Teams',
-        url: '/dashboard/workspaces/team',
+        title: 'Students',
+        url: '/dashboard/students',
         icon: 'teams',
         isActive: false,
         items: [],
         access: { requireOrg: true }
       },
-      {
-        title: 'Product',
-        url: '/dashboard/product',
-        icon: 'product',
-        shortcut: ['p', 'p'],
-        isActive: false,
-        items: []
-      },
-      {
-        title: 'Users',
-        url: '/dashboard/users',
-        icon: 'teams',
-        shortcut: ['u', 'u'],
-        isActive: false,
-        items: []
-      },
+      
+      
       {
         title: 'Kanban',
         url: '/dashboard/kanban',
@@ -95,10 +106,24 @@ export const navGroups: NavGroup[] = [
     ]
   },
   {
-    label: 'Elements',
+    label: 'Analytics',
     items: [
       {
-        title: 'Forms',
+        title: 'Analytics Document',
+        url: '/dashboard/analytics',
+        icon: 'forms',
+        isActive: true,
+        
+      },
+      
+      
+    ]
+  },
+  {
+    label: 'Reports',
+    items: [
+      {
+        title: 'Report Forms',
         url: '#',
         icon: 'forms',
         isActive: true,
@@ -126,24 +151,12 @@ export const navGroups: NavGroup[] = [
           }
         ]
       },
-      {
-        title: 'React Query',
-        url: '/dashboard/react-query',
-        icon: 'code',
-        isActive: false,
-        items: []
-      },
-      {
-        title: 'Icons',
-        url: '/dashboard/elements/icons',
-        icon: 'palette',
-        isActive: false,
-        items: []
-      }
+      
+      
     ]
   },
   {
-    label: '',
+    label: 'Pages',
     items: [
       {
         title: 'Pro',
@@ -185,9 +198,9 @@ export const navGroups: NavGroup[] = [
             access: { requireOrg: true }
           },
           {
-            title: 'Login',
+            title: 'Logout',
             shortcut: ['l', 'l'],
-            url: '/',
+            url: '/login',
             icon: 'login'
           }
         ]
