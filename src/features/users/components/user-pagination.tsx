@@ -1,10 +1,6 @@
 "use client"
 
 import {
-    Table
-} from "@tanstack/react-table"
-
-import {
     ChevronLeft,
     ChevronRight,
 } from "lucide-react"
@@ -12,26 +8,42 @@ import {
 import { Button } from "@/components/ui/button"
 
 
-interface Props<TData> {
 
-    table: Table<TData>
+interface Props {
 
     pageIndex: number
+
+    pageCount: number
+
+    canPrevious: boolean
+
+    canNext: boolean
+
+    previousPage: () => void
+
+    nextPage: () => void
 
 }
 
 
 
-export function UserPagination<TData>({
 
-    table,
+
+export function UserPagination({
 
     pageIndex,
 
-}: Props<TData>) {
+    pageCount,
 
+    canPrevious,
 
-    const pageCount = table.getPageCount()
+    canNext,
+
+    previousPage,
+
+    nextPage,
+
+}: Props) {
 
 
 
@@ -44,7 +56,9 @@ export function UserPagination<TData>({
 
             <div className="text-sm text-muted-foreground">
 
+
                 Page{" "}
+
 
                 <span className="font-medium text-foreground">
 
@@ -53,7 +67,9 @@ export function UserPagination<TData>({
                 </span>
 
 
+
                 {" "}of{" "}
+
 
 
                 <span className="font-medium text-foreground">
@@ -62,13 +78,16 @@ export function UserPagination<TData>({
 
                 </span>
 
+
             </div>
 
 
 
 
 
+
             {/* Right */}
+
 
             <div className="flex items-center gap-2">
 
@@ -79,9 +98,9 @@ export function UserPagination<TData>({
 
                     size="sm"
 
-                    onClick={() => table.previousPage()}
+                    onClick={previousPage}
 
-                    disabled={!table.getCanPreviousPage()}
+                    disabled={!canPrevious}
 
                 >
 
@@ -89,7 +108,10 @@ export function UserPagination<TData>({
 
                     Previous
 
+
                 </Button>
+
+
 
 
 
@@ -100,15 +122,16 @@ export function UserPagination<TData>({
 
                     size="sm"
 
-                    onClick={() => table.nextPage()}
+                    onClick={nextPage}
 
-                    disabled={!table.getCanNextPage()}
+                    disabled={!canNext}
 
                 >
 
                     Next
 
                     <ChevronRight className="h-4 w-4" />
+
 
                 </Button>
 

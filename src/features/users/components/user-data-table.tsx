@@ -13,6 +13,7 @@ import {
     VisibilityState,
 } from "@tanstack/react-table"
 
+
 import { User } from "@/types/user"
 
 import { DataTable } from "./data-table"
@@ -22,11 +23,18 @@ import { ColumnVisibility } from "./column-visibility"
 
 
 interface Props {
+
     columns: ColumnDef<User>[]
+
     data: User[]
+
     globalFilter?: string
+
     onGlobalFilterChange?: (value: string) => void
+
 }
+
+
 
 
 
@@ -41,6 +49,7 @@ export function UserDataTable({
     onGlobalFilterChange
 
 }: Props) {
+
 
 
     const [sorting, setSorting] =
@@ -85,7 +94,7 @@ export function UserDataTable({
 
 
 
-    // force ColumnVisibility refresh
+
     const [columnVersion, setColumnVersion] =
         useState(0)
 
@@ -168,22 +177,45 @@ export function UserDataTable({
 
 
 
-        enableSorting: true,
-
-
-
         onGlobalFilterChange,
 
 
-        onSortingChange: setSorting,
+        onSortingChange:
+
+            setSorting,
 
 
-        onPaginationChange: setPagination,
+
+        onPaginationChange: (updater) => {
+
+
+            setPagination(old => {
+
+
+                const next =
+
+                    typeof updater === "function"
+
+                        ? updater(old)
+
+                        : updater
+
+
+
+                return next
+
+            })
+
+
+        },
 
 
 
         onColumnVisibilityChange:
+
             handleColumnVisibilityChange,
+
+
 
 
 
@@ -199,8 +231,11 @@ export function UserDataTable({
 
 
             const searchValue =
+
                 String(filterValue ?? "")
+
                     .trim()
+
                     .toLowerCase()
 
 
@@ -218,31 +253,40 @@ export function UserDataTable({
                 .some((value) =>
 
                     String(value)
+
                         .toLowerCase()
+
                         .includes(searchValue)
 
                 )
+
 
         },
 
 
 
+
+
         getCoreRowModel:
+
             getCoreRowModel(),
 
 
 
         getFilteredRowModel:
+
             getFilteredRowModel(),
 
 
 
         getSortedRowModel:
+
             getSortedRowModel(),
 
 
 
         getPaginationRowModel:
+
             getPaginationRowModel(),
 
 
@@ -254,22 +298,23 @@ export function UserDataTable({
 
 
 
+
     return (
 
-<div
-    className="
-        flex
-        h-full
-        min-h-0
-        flex-1
-        flex-col
-        overflow-hidden
-        rounded-xl
-        border
-        bg-card
-        shadow-sm
-    "
->
+        <div
+            className="
+                flex
+                h-full
+                min-h-0
+                flex-1
+                flex-col
+                overflow-hidden
+                rounded-xl
+                border
+                bg-card
+                shadow-sm
+            "
+        >
 
 
             <div className="flex justify-end p-2">
@@ -311,15 +356,30 @@ export function UserDataTable({
 
                 <UserPagination
 
-                    table={table}
-
                     pageIndex={pagination.pageIndex}
+
+                    pageCount={table.getPageCount()}
+
+                    canPrevious={
+                        table.getCanPreviousPage()
+                    }
+
+                    canNext={
+                        table.getCanNextPage()
+                    }
+
+                    previousPage={() =>
+                        table.previousPage()
+                    }
+
+                    nextPage={() =>
+                        table.nextPage()
+                    }
 
                 />
 
 
             </div>
-
 
 
         </div>
