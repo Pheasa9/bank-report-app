@@ -1,99 +1,123 @@
 "use client"
 
-import { Table } from "@tanstack/react-table"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import {
+    Table
+} from "@tanstack/react-table"
+
+import {
+    ChevronLeft,
+    ChevronRight,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
 
 interface Props<TData> {
+
     table: Table<TData>
+
     pageIndex: number
+
 }
 
 
+
 export function UserPagination<TData>({
+
     table,
-    pageIndex
+
+    pageIndex,
+
 }: Props<TData>) {
 
 
     const pageCount = table.getPageCount()
 
 
+
     return (
 
-        <div className="flex items-center justify-between  px-4 py-3">
+        <div className="flex items-center justify-between px-2 py-3">
 
 
-            {/* Previous */}
-
-            <Button
-
-                variant="outline"
-
-                size="sm"
-
-                onClick={() => table.previousPage()}
-
-                disabled={pageIndex === 0}
-
-                className="gap-2"
-
-            >
-
-                <ChevronLeft className="h-4 w-4" />
-
-                Previous
-
-            </Button>
-
-
-
-            {/* Page Info */}
+            {/* Left */}
 
             <div className="text-sm text-muted-foreground">
 
                 Page{" "}
 
                 <span className="font-medium text-foreground">
+
                     {pageIndex + 1}
+
                 </span>
+
 
                 {" "}of{" "}
 
+
                 <span className="font-medium text-foreground">
+
                     {pageCount}
+
                 </span>
 
             </div>
 
 
 
-            {/* Next */}
 
-            <Button
 
-                variant="outline"
+            {/* Right */}
 
-                size="sm"
+            <div className="flex items-center gap-2">
 
-                onClick={() => table.nextPage()}
 
-                disabled={pageIndex >= pageCount - 1}
+                <Button
 
-                className="gap-2"
+                    variant="outline"
 
-            >
+                    size="sm"
 
-                Next
+                    onClick={() => table.previousPage()}
 
-                <ChevronRight className="h-4 w-4" />
+                    disabled={!table.getCanPreviousPage()}
 
-            </Button>
+                >
+
+                    <ChevronLeft className="h-4 w-4" />
+
+                    Previous
+
+                </Button>
+
+
+
+
+                <Button
+
+                    variant="outline"
+
+                    size="sm"
+
+                    onClick={() => table.nextPage()}
+
+                    disabled={!table.getCanNextPage()}
+
+                >
+
+                    Next
+
+                    <ChevronRight className="h-4 w-4" />
+
+                </Button>
+
+
+            </div>
 
 
         </div>
 
     )
+
 }

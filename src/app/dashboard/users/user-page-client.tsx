@@ -52,12 +52,16 @@ export default function UserPageClient() {
                 </div>
             }
         >
-            <UserDataTable
-                columns={columns({ onView: handleViewUser })}
-                data={data ?? []}
-                globalFilter={globalFilter}
-                onGlobalFilterChange={setGlobalFilter}
-            />
+            <div className="flex h-full min-h-0 flex-1 overflow-hidden">
+
+    <UserDataTable
+        columns={columns({ onView: handleViewUser })}
+        data={data ?? []}
+        globalFilter={globalFilter}
+        onGlobalFilterChange={setGlobalFilter}
+    />
+
+</div>
         </PageContainer>
     );
 }
