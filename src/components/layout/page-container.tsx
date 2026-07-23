@@ -11,62 +11,187 @@ function PageSkeleton() {
           <div className='bg-muted h-4 w-96 rounded' />
         </div>
       </div>
+
       <div className='bg-muted mt-6 h-40 w-full rounded-lg' />
+
       <div className='bg-muted h-40 w-full rounded-lg' />
     </div>
   );
 }
 
+
 export default function PageContainer({
+
   children,
+
   isLoading = false,
+
   access = true,
+
   accessFallback,
+
   pageTitle,
+
   pageDescription,
+
   infoContent,
+
   pageHeaderAction
+
 }: {
+
   children: React.ReactNode;
+
   isLoading?: boolean;
+
   access?: boolean;
+
   accessFallback?: React.ReactNode;
+
   pageTitle?: string;
+
   pageDescription?: string;
+
   infoContent?: InfobarContent;
+
   pageHeaderAction?: React.ReactNode;
+
 }) {
+
+
   if (!access) {
+
     return (
-<div className="flex h-full min-h-0 flex-col overflow-hidden px-4 pt-2 pb-4 md:px-6 md:pt-4">
-          {accessFallback ?? (
-          <div className='text-muted-foreground text-center text-lg'>
-            You do not have access to this page.
-          </div>
-        )}
+
+      <div
+        className="
+          flex
+          h-full
+          min-h-0
+          flex-col
+          overflow-hidden
+          px-4
+          pt-2
+          pb-4
+          md:px-6
+          md:pt-4
+        "
+      >
+
+        {
+          accessFallback ?? (
+
+            <div className="text-muted-foreground text-center text-lg">
+
+              You do not have access to this page.
+
+            </div>
+
+          )
+        }
+
+
       </div>
+
     );
+
   }
 
-  const content = isLoading ? <PageSkeleton /> : children;
+
+
+  const content = isLoading
+
+    ? <PageSkeleton />
+
+    : children;
+
+
 
   const hasHeader = pageTitle || pageHeaderAction;
 
+
+
   return (
-    <div className='flex flex-1 flex-col overflow-hidden px-4 pt-2 pb-4 md:px-6 md:pt-4'>
-      {hasHeader && (
-        <div className='mb-4 flex flex-shrink-0 items-start justify-between gap-4'>
-          <Heading
-            title={pageTitle ?? ''}
-            description={pageDescription ?? ''}
-            infoContent={infoContent}
-          />
-          {pageHeaderAction && <div className='shrink-0'>{pageHeaderAction}</div>}
-        </div>
-      )}
-      <div className='min-h-0 flex-1'>
+
+    <div
+      className="
+        flex
+        flex-1
+        min-h-0
+        flex-col
+        overflow-hidden
+        px-4
+        pt-2
+        pb-4
+        md:px-6
+        md:pt-4
+      "
+    >
+
+
+      {
+        hasHeader && (
+
+          <div
+            className="
+              mb-4
+              flex
+              shrink-0
+              items-start
+              justify-between
+              gap-4
+            "
+          >
+
+            <Heading
+
+              title={pageTitle ?? ''}
+
+              description={pageDescription ?? ''}
+
+              infoContent={infoContent}
+
+            />
+
+
+
+            {
+              pageHeaderAction && (
+
+                <div className="shrink-0">
+
+                  {pageHeaderAction}
+
+                </div>
+
+              )
+            }
+
+
+          </div>
+
+        )
+      }
+
+
+
+
+      <div
+        className="
+          min-h-0
+          flex-1
+          overflow-hidden
+        "
+      >
+
         {content}
+
       </div>
+
+
+
     </div>
+
   );
+
 }

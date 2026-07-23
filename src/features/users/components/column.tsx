@@ -1,17 +1,16 @@
-"use client";
+"use client"
 
-
-import { User } from "@/types/user";
+import { User } from "@/types/user"
 
 import {
     ColumnDef
-} from "@tanstack/react-table";
+} from "@tanstack/react-table"
 
-import Image from "next/image";
+import Image from "next/image"
 
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown } from "lucide-react"
 
-import { UserActions } from "./user-actions";
+import { UserActions } from "./user-actions"
 
 
 
@@ -25,147 +24,242 @@ export const columns = (
 ): ColumnDef<User>[] => [
 
 
+    {
+        id: "avatar",
 
-{
-    accessorKey:"avatar",
+        accessorKey: "avatar",
 
-    header:"Avatar",
+        header: "Avatar",
 
-    cell: ({ row }) => (
+        enableHiding: true,
 
-        <Image
+        cell: ({ row }) => (
 
-            src={row.original.avatar}
+            <Image
 
-            alt={row.original.fullname}
+                src={row.original.avatar}
 
-            width={40}
+                alt={row.original.fullname}
 
-            height={40}
+                width={40}
 
-            className="rounded-full object-cover"
+                height={40}
 
-        />
+                className="rounded-full object-cover"
 
-    ),
+            />
 
-},
+        ),
 
-
-
-{
-    accessorKey: "fullname",
-    header: ({ column }) => (
-        <button
-            type="button"
-            onClick={column.getToggleSortingHandler()}
-            className="flex items-center gap-2 text-left"
-        >
-            <span>Full Name</span>
-            <ArrowUpDown className="h-4 w-4" />
-        </button>
-    ),
-    enableSorting: true,
-},
+    },
 
 
 
-{
-    accessorKey:"username",
+    {
+        id: "fullname",
 
-    header: ({ column }) => (
-        <button
-            type="button"
-            onClick={column.getToggleSortingHandler()}
-            className="flex items-center gap-2 text-left"
-        >
-            <span>Username</span>
-            <ArrowUpDown className="h-4 w-4" />
-        </button>
-    ),
-    enableSorting: true,
+        accessorKey: "fullname",
 
-},
+        header: ({ column }) => (
 
+            <button
 
+                type="button"
 
-{
-    accessorKey:"email",
+                onClick={
+                    column.getToggleSortingHandler()
+                }
 
-    header: ({ column }) => (
-        <button
-            type="button"
-            onClick={column.getToggleSortingHandler()}
-            className="flex items-center gap-2 text-left"
-        >
-            <span>Email</span>
-            <ArrowUpDown className="h-4 w-4" />
-        </button>
-    ),
-    enableSorting: true,
+                className="flex items-center gap-2 text-left"
 
-},
+            >
 
+                <span>
+                    Full Name
+                </span>
 
+                <ArrowUpDown className="h-4 w-4" />
 
-{
-    accessorKey:"phone",
+            </button>
 
-    header: ({ column }) => (
-        <button
-            type="button"
-            onClick={column.getToggleSortingHandler()}
-            className="flex items-center gap-2 text-left"
-        >
-            <span>Phone</span>
-            <ArrowUpDown className="h-4 w-4" />
-        </button>
-    ),
-    enableSorting: true,
+        ),
 
-},
+        enableSorting: true,
+
+        enableHiding: true,
+
+    },
 
 
 
-{
-    accessorKey:"country",
+    {
+        id: "username",
 
-    header: ({ column }) => (
-        <button
-            type="button"
-            onClick={column.getToggleSortingHandler()}
-            className="flex items-center gap-2 text-left"
-        >
-            <span>Country</span>
-            <ArrowUpDown className="h-4 w-4" />
-        </button>
-    ),
-    enableSorting: true,
+        accessorKey: "username",
 
-},
+        header: ({ column }) => (
 
+            <button
 
+                type="button"
 
+                onClick={
+                    column.getToggleSortingHandler()
+                }
 
-{
-    id:"actions",
+                className="flex items-center gap-2 text-left"
 
-    header:"Action",
+            >
 
-    cell:({row})=>(
+                <span>
+                    Username
+                </span>
 
-        <UserActions
+                <ArrowUpDown className="h-4 w-4" />
 
-            user={row.original}
+            </button>
 
-            onView={onView}
+        ),
 
-        />
+        enableSorting: true,
 
-    )
+        enableHiding: true,
 
-}
+    },
 
 
 
-];
+    {
+        id: "email",
+
+        accessorKey: "email",
+
+        header: ({ column }) => (
+
+            <button
+
+                type="button"
+
+                onClick={
+                    column.getToggleSortingHandler()
+                }
+
+                className="flex items-center gap-2 text-left"
+
+            >
+
+                <span>
+                    Email
+                </span>
+
+                <ArrowUpDown className="h-4 w-4" />
+
+            </button>
+
+        ),
+
+        enableSorting: true,
+
+        enableHiding: true,
+
+    },
+
+
+
+    {
+        id: "phone",
+
+        accessorKey: "phone",
+
+        header: ({ column }) => (
+
+            <button
+
+                type="button"
+
+                onClick={
+                    column.getToggleSortingHandler()
+                }
+
+                className="flex items-center gap-2 text-left"
+
+            >
+
+                <span>
+                    Phone
+                </span>
+
+                <ArrowUpDown className="h-4 w-4" />
+
+            </button>
+
+        ),
+
+        enableSorting: true,
+
+        enableHiding: true,
+
+    },
+
+
+
+    {
+        id: "country",
+
+        accessorKey: "country",
+
+        header: ({ column }) => (
+
+            <button
+
+                type="button"
+
+                onClick={
+                    column.getToggleSortingHandler()
+                }
+
+                className="flex items-center gap-2 text-left"
+
+            >
+
+                <span>
+                    Country
+                </span>
+
+                <ArrowUpDown className="h-4 w-4" />
+
+            </button>
+
+        ),
+
+        enableSorting: true,
+
+        enableHiding: true,
+
+    },
+
+
+
+    {
+        id: "actions",
+
+        header: "Action",
+
+        enableHiding: false,
+
+        cell: ({ row }) => (
+
+            <UserActions
+
+                user={row.original}
+
+                onView={onView}
+
+            />
+
+        )
+
+    }
+
+
+]
